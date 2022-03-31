@@ -1,5 +1,4 @@
 import styles from "./Intro.module.scss";
-import Button from "../../global/Button/Button";
 
 const Intro = () => {
   return (
