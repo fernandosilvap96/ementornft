@@ -1,0 +1,222 @@
+@mixin buttonStyle {
+  display: inline-block;
+  height: 54px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+  margin: 10px 0;
+  box-shadow: 0 0 1rem 0 rgb(24, 23, 23);
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 17px 20px;
+  position: relative;
+  z-index: 1;
+  background: inherit;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+
+  &:before {
+    content: '';
+    position: absolute;
+    background: inherit;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+    filter: blur(10px);
+    margin: -20px;
+    animation: wallet-animate 1s infinite;
+  }
+
+  @keyframes wallet-animate {
+    0% {
+      box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+      box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.26);
+    }
+    100% {
+      box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.minter {
+
+  text-align: center;
+
+  ._title {
+    text-align: center;
+    font-size: 100px;
+    color: red;
+  }
+
+  ._card {
+    width: 500px;
+    position: relative;
+    margin: auto;
+    background: rgb(221, 221, 221);
+    color: rgb(19, 18, 18);
+
+
+    ._card_content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 300px;
+      margin: auto;
+      h1 {
+        font-size: 38px;
+        font-weight: bold;
+        margin: auto;
+        color: #000000;
+      }
+      p {
+        font-size: 16px;
+        font-weight: normal;
+        margin: auto;
+        padding-bottom: 20px;
+
+      }
+      button {
+        @include buttonStyle;
+        color: rgb(2, 2, 2);
+        display: flex;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+
+      //AQUI COMEÇA O CSS DO INPUT
+      /*
+      input {
+        border: 2px solid; 
+        border-radius: 4px; 
+        display: flex; 
+        margin: auto;
+        width: 100%;
+        height: 50px;
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      input[type="number"] {
+        -webkit-appearance: textfield;
+        -moz-appearance: textfield;
+        appearance: textfield;
+      }
+      
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+      }
+      */
+      
+      input[type="number"] {
+        -webkit-appearance: textfield;
+           -moz-appearance: textfield;
+                appearance: textfield;
+      }
+      input[type=number]::-webkit-inner-spin-button, 
+      input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none;
+      }
+      ._number_input {
+        border: 2px solid rgb(0, 0, 0);
+        display: inline-flex;
+      }
+      
+      ._number_input,
+      ._number_input * {
+        box-sizing: border-box;
+      }
+      
+      ._number_input button {
+        outline:none;
+        -webkit-appearance: none;
+        background-color: transparent;
+        border: none;
+        align-items: center;
+        width: 3rem;
+        height: 3rem;
+        cursor: pointer;
+        margin: auto;
+        position: relative;
+        font-size: 25px;
+        text-align: center;
+
+      }
+
+      ._number_input input[type=number] {
+        font-family: sans-serif;
+        max-width: 5rem;
+        padding: .5rem;
+        border: solid rgb(10, 10, 10);
+        border-width: 0px;
+        font-size: 2rem;
+        height: 3rem;
+        font-weight: bold;
+        text-align: center;
+        display: flex;
+      }
+
+
+
+
+    }
+  }
+
+  ._connect_wallet {
+    display: flex;
+    flex: 2 1 0%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    ._title {
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      line-height: 1.6;
+      color: var(--headline-color);
+
+      @media screen and (max-width: 599px) {
+        font-size: 30px;
+      }
+    }
+
+    .wallet_btn {
+      @include buttonStyle;
+    }
+
+    ._subtitle {
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.6;
+      // font-weight: bold;
+      margin: 0;
+      padding: 0;
+    }
+
+    .transaction_details {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      text-align: center;
+
+      span {
+        color: var(--headline-color);
+      }
+    }
+  }
+}
