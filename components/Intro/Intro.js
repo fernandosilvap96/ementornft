@@ -12,16 +12,16 @@ const Intro = () => {
             Crypto Fools collection is inspired by famous Rage Comics and now we have decided to bring it to the next level.
             With this Crypty Fools collection, we want to build the largest crypto and NFT enthusiasts community and one of the most widely recognized NFT PFPs.
             As a wise man once said: everyone is a fool. Yes! No one is really smart except the Almighty God.
-            After thousand of years searching, we still Don't know who we really are, where we are from and where we are going to. We may never find out.
-            But on a second thought, perhaps it doesn't matter anymore.
+            After thousand of years searching, we still Don&apos;t know who we really are, where we are from and where we are going to. We may never find out.
+            But on a second thought, perhaps it doesn&apos;t matter anymore.
             Because we are fools! We just live at the moment! Let's have some fun and change the world together!
           </p>
            <h2 className={styles._title}>
             <span>The Foolture</span>
             </h2>
             <p>
-            Well, in Crypto Fools' world, Foolture means two things:
-            fools' culture and fools' future. We know it may sound foolish but that's exactly the culture.
+            Well, in Crypto Fools&apos; world, Foolture means two things:
+            fools&apos; culture and fools&apos; future. We know it may sound foolish but that's exactly the culture.
             By joining the Crypto Fools community, we will define and change our Foolture together.
           </p>
                      <h2 className={styles._title}>
@@ -58,14 +58,14 @@ const Intro = () => {
             </h2>
             <p>
             Fools holders will be able to join Fools exclusive club and make decisions for our Foolture.
-            And if there is any Fools derivatives such as Fools' Pets, Fools' Rides, and Fools' Lands, Fools holders will have privileged access to them.
+            And if there is any Fools derivatives such as Fools&apos; Pets, Fools&apos; Rides, and Fools&apos; Lands, Fools holders will have privileged access to them.
             In addition, one is the best part is that unique Crypto Fool you own may appear in new episodes of Rage Comics which will be viewed by millions people on the internet.
           </p>
                                <h2 className={styles._title}>
             <span>Roadmaps:</span>
             </h2>
             <p>
-            Fools' Pets, Fools' Rides, Fools' Lands, Fools' Dao and blah blah blah.
+            Fools&apos; Pets, Fools&apos; Rides, Fools&apos; Lands, Fools&apos; Dao and blah blah blah.
             Everything our fools community need is what we will try to build.
           </p>
           
