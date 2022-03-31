@@ -14,14 +14,14 @@ const Intro = () => {
             As a wise man once said: everyone is a fool. Yes! No one is really smart except the Almighty God.
             After thousand of years searching, we still Don&apos;t know who we really are, where we are from and where we are going to. We may never find out.
             But on a second thought, perhaps it doesn&apos;t matter anymore.
-            Because we are fools! We just live at the moment! Let's have some fun and change the world together!
+            Because we are fools! We just live at the moment! Let&apos;s have some fun and change the world together!
           </p>
            <h2 className={styles._title}>
             <span>The Foolture</span>
             </h2>
             <p>
             Well, in Crypto Fools&apos; world, Foolture means two things:
-            fools&apos; culture and fools&apos; future. We know it may sound foolish but that's exactly the culture.
+            fools&apos; culture and fools&apos; future. We know it may sound foolish but that&apos;s exactly the culture.
             By joining the Crypto Fools community, we will define and change our Foolture together.
           </p>
                      <h2 className={styles._title}>
@@ -43,8 +43,8 @@ const Intro = () => {
             </h2>
             <p>
             We hate gas war where everyone scrambling to mint, fail and get gas wasted.
-            We want to be fair and square so more people will have a chance to mint and don't need to overspend on gas.
-            So without any hype promotion, we open mint to everyone on April Fools' Day.
+            We want to be fair and square so more people will have a chance to mint and don&apos;t need to overspend on gas.
+            So without any hype promotion, we open mint to everyone on April Fools&apos; Day.
             </p>
                      <h2 className={styles._title}>
             <span>Copyrights: CC0 License</span>
