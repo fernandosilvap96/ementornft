@@ -94,7 +94,7 @@ const Minter = () => {
       console.log(signer)
 
     
-      const tx1 = await nft.mint('0x2d5255E4b201Db61f46e1A0203d18Bf1358e213a', quantidade)
+      const tx1 = await nft.mint('0,05', account, quantidade)
       tx1.wait();
       console.log(tx1)
       /*
