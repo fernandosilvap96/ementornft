@@ -3,7 +3,6 @@ import styles from "./Minter.module.scss";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import Typography from "@mui/material/Typography";
 import { ethers, Contract } from 'ethers';
 import abi from './ragefools.json'
 
@@ -14,6 +13,7 @@ const Minter = () => {
   const [quantidade, setQuantidade] = useState(1);
   const [address, setAddress] = useState(undefined);
   const [minted, setMinted] = useState(false);
+  const [price, setPrice] = useState(undefined);
 
   /*
   inputChangedHandler = (event) => {
@@ -84,6 +84,7 @@ const Minter = () => {
     console.log(provider);
     console.log(nft);
 
+
     //TX Mint
     try {
       console.log("Executing Minting...");
@@ -93,8 +94,11 @@ const Minter = () => {
       const signer = provider.getSigner();
       console.log(signer)
 
-    
-      const tx1 = await nft.mint('0,05', account, quantidade)
+      //setPrice(await nft.cost)
+      
+      //const total = price/18 * quantidade
+      
+      const tx1 = await nft.mint(address, quantidade)
       tx1.wait();
       console.log(tx1)
       /*
