@@ -12,8 +12,8 @@ const Intro = () => {
             Crypto Fools collection is inspired by famous Rage Comics and now we have decided to bring it to the next level.
             With this Crypty Fools collection, we want to build the largest crypto and NFT enthusiasts community and one of the most widely recognized NFT PFPs.
             As a wise man once said: everyone is a fool. Yes! No one is really smart except the Almighty God.
-            After thousand of years searching, we still Do not know who we really are, where we are from and where we are going to. We may never find out.
-            But on a second thought, perhaps it does not matter anymore.
+            After thousand of years searching, we still Don't know who we really are, where we are from and where we are going to. We may never find out.
+            But on a second thought, perhaps it doesn't matter anymore.
             Because we are fools! We just live at the moment! Let's have some fun and change the world together!
           </p>
            <h2 className={styles._title}>
