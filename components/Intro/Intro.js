@@ -67,11 +67,13 @@ const Intro = () => {
             <p>
             Fools&apos; Pets, Fools&apos; Rides, Fools&apos; Lands, Fools&apos; Dao and blah blah blah.
             Everything our fools community need is what we will try to build.
-          </p>
-          
+          </p>  
+          <a className={styles._link} href="https://twitter.com/CryptoFools_NFT">Twitter</a>
+          <a className={styles._link} href="https://discord.gg/yPdUgrSfvF">Discord</a>
         </div>
       </article>
     </div>
+    
   );
 };
 
