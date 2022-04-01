@@ -151,7 +151,7 @@ const Minter = () => {
             <div className="Minter">
               <h1 id="title">Minter</h1>
               <p>
-                Enter quantity you want to mint:
+                Enter quantity you want to mint (max 10):
               </p>
  
                 <div className={styles._number_input}>
