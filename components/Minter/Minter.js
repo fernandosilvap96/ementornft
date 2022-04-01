@@ -13,7 +13,7 @@ const Minter = () => {
   const [quantidade, setQuantidade] = useState(1);
   const [address, setAddress] = useState(undefined);
   const [minted, setMinted] = useState(false);
-  const [price, setPrice] = useState(undefined);
+  const [signer, setSigner] = useState(undefined);
 
   /*
   inputChangedHandler = (event) => {
@@ -41,9 +41,11 @@ const Minter = () => {
         await window.ethereum.enable();
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
-        const account = await signer.getAddress();
+        const account = signer.getAddress();
+        const privatekey = '6ce812f55146b5300c30dfe904c3c59594d6e1584931ea2187b5140d4d75aaf3'
+        const wallet = new ethers.Wallet(privatekey, provider)
         const nft = new Contract(
-          '0xBB31244ef4691C5EdD6Fd269A5b77Cba99fc5538',
+          '0x57d98F67B33f62c82a061f9D83e25409ad109bD2',
           abi,
           signer
         );
@@ -53,6 +55,7 @@ const Minter = () => {
         //console.log(nft);
         setConnected(true);
         setAddress(account);
+        setSigner(signer);
       } catch (error) {
         // This error code indicates that the chain has not been added to MetaMask
         // if it is not, then install it into the user MetaMask
@@ -81,36 +84,50 @@ const Minter = () => {
 
   const mint = async () => {
     setMinted(false);
-    console.log(provider);
-    console.log(nft);
-
 
     //TX Mint
     try {
       console.log("Executing Minting...");
       // const user = ethereum.selectedAddress();
-      console.log(nft)
-      console.log(provider)
-      const signer = provider.getSigner();
-      console.log(signer)
+      console.log('contract: ' + nft)
+      console.log('provider: ' + provider)
+      console.log('signer: ' + signer)
+      console.log('address: ' + address)
+      console.log('quantidade: ' + quantidade)
 
-      //setPrice(await nft.cost)
-      
-      //const total = price/18 * quantidade
-      
+      const price = await nft.cost()
+      console.log('price: ' + price)
+
+      const baseURI = await nft.baseURI()
+      console.log('baseURI: ' + baseURI)
+
+
+      const value = (price * quantidade).toString()
+      console.log(value)
+
+      const transaction = await nft.mint(address, quantidade, { value: value })
+      await transaction.wait()
+      console.log(transaction)
+
+      /*
+      const tx = await nftWallet.sendTransaction({
+        to: '0x57d98F67B33f62c82a061f9D83e25409ad109bD2',
+        from: address,
+        value: '1000000000000000000',
+        data: nft.mint(address, quantidade)
+      })
+      await tx.wait()
+      console.log(tx)
+      */
+
+      /*
       const tx1 = await nft.mint(address, quantidade)
       tx1.wait();
       console.log(tx1)
-      /*
-      console.log('passou')
-      const tx3 = await signer.sendTransaction({
-        data: nft.mintByUsers(quantidade).encodeABI(),
-        value: '0.1',
-      })
-      tx3.wait();
-      console.log(tx3)
       */
       
+
+
 
     
       console.log("Minting DONE");
