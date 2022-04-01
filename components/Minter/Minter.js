@@ -42,8 +42,6 @@ const Minter = () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         const account = signer.getAddress();
-        const privatekey = '6ce812f55146b5300c30dfe904c3c59594d6e1584931ea2187b5140d4d75aaf3'
-        const wallet = new ethers.Wallet(privatekey, provider)
         const nft = new Contract(
           '0x57d98F67B33f62c82a061f9D83e25409ad109bD2',
           abi,
