@@ -43,7 +43,7 @@ const Minter = () => {
         const signer = provider.getSigner();
         const account = signer.getAddress();
         const nft = new Contract(
-          '0x3D8E03Ea3b8706F5769550552ED366F53eeaBE61',
+          '0x429C422873bcc0f9A32c177dd8a64F88264dE182',
           abi,
           signer
         );
