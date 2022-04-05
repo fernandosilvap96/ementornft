@@ -36,14 +36,14 @@ const Minter = () => {
         // check if the chain to connect to is installed
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0x89' }], // switch to Rinkeby
+          params: [{ chainId: '0x4' }], // switch to Rinkeby
         });
         await window.ethereum.enable();
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         const account = signer.getAddress();
         const nft = new Contract(
-          '0x57d98F67B33f62c82a061f9D83e25409ad109bD2',
+          '0x3D8E03Ea3b8706F5769550552ED366F53eeaBE61',
           abi,
           signer
         );
@@ -63,7 +63,7 @@ const Minter = () => {
               method: 'wallet_addEthereumChain',
               params: [
                 {
-                  chainId: '0x89',
+                  chainId: '0x1',
                   rpcUrl: 'https://polygon-rpc.com/',
                 },
               ],
