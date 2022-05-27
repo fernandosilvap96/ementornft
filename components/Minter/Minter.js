@@ -4,7 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import { ethers, Contract } from 'ethers';
-import abi from './duplaslab.json'
+import abi from './ementor.json'
 
 const Minter = () => {
   const [provider, setProvider] = useState(undefined);
