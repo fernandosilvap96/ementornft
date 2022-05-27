@@ -143,7 +143,7 @@ const Minter = () => {
                 </button>
               <hr />
               {minted ? (
-                <a href="https://opensea.io/collection/duplaslab">LINK PARA A OPENSEA</a>
+                <a href="https://opensea.io/collection/ementor">LINK PARA A OPENSEA</a>
               ) : (
                 <div>Aguardando o mint...</div>
               )}
