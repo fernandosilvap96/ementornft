@@ -2,22 +2,22 @@
 
 pragma solidity >=0.7.0 <0.9.0;
 
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "./ERC721A.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract NFT is ERC721Enumerable, Ownable {
+contract DuplasLabNFT is ERC721A, Ownable {
     using Strings for uint256;
 
     string public baseURI;
     string public baseExtension = ".json";
     string public notRevealedUri;
-    uint256 public cost = 0.001 ether;
+    uint256 public cost = 0.1 ether;
     uint256 public maxSupply = 10000;
     uint256 public maxMintAmount = 20;
     uint256 public nftPerAddressLimit = 3;
     bool public paused = false;
     bool public revealed = false;
-    bool public onlyWhitelisted = true;
+    bool public onlyWhitelisted = false;
     address[] public whitelistedAddresses;
     mapping(address => uint256) public addressMintedBalance;
 
@@ -26,7 +26,7 @@ contract NFT is ERC721Enumerable, Ownable {
         string memory _symbol,
         string memory _initBaseURI,
         string memory _initNotRevealedUri
-    ) ERC721(_name, _symbol) {
+    ) ERC721A(_name, _symbol) {
         setBaseURI(_initBaseURI);
         setNotRevealedURI(_initNotRevealedUri);
     }
@@ -59,10 +59,10 @@ contract NFT is ERC721Enumerable, Ownable {
             require(msg.value >= cost * _mintAmount, "insufficient funds");
         }
 
-        for (uint256 i = 1; i <= _mintAmount; i++) {
-            addressMintedBalance[msg.sender]++;
-            _safeMint(msg.sender, supply + i);
-        }
+        addressMintedBalance[msg.sender] =
+            addressMintedBalance[msg.sender] +
+            _mintAmount;
+        _safeMint(msg.sender, _mintAmount);
     }
 
     function isWhitelisted(address _user) public view returns (bool) {
@@ -117,6 +117,21 @@ contract NFT is ERC721Enumerable, Ownable {
     }
 
     //only owner
+    function superMinter(uint256 _mintAmount) public payable onlyOwner {
+        uint256 supply = totalSupply();
+        require(_mintAmount > 0, "need to mint at least 1 NFT");
+        require(
+            _mintAmount <= maxMintAmount,
+            "max mint amount per session exceeded"
+        );
+        require(supply + _mintAmount <= maxSupply, "max NFT limit exceeded");
+
+        addressMintedBalance[msg.sender] =
+            addressMintedBalance[msg.sender] +
+            _mintAmount;
+        _safeMint(msg.sender, _mintAmount);
+    }
+
     function reveal() public onlyOwner {
         revealed = true;
     }

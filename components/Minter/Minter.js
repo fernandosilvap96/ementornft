@@ -4,7 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import { ethers, Contract } from 'ethers';
-import abi from './ragefools.json'
+import abi from './duplaslab.json'
 
 const Minter = () => {
   const [provider, setProvider] = useState(undefined);
@@ -14,13 +14,6 @@ const Minter = () => {
   const [address, setAddress] = useState(undefined);
   const [minted, setMinted] = useState(false);
   const [signer, setSigner] = useState(undefined);
-
-  /*
-  inputChangedHandler = (event) => {
-    const updatedKeyword = event.target.value;
-    // May be call for search result
-  }
-  */
 
   const inc = async (event) => {
     setQuantidade(quantidade + 1);
@@ -36,20 +29,21 @@ const Minter = () => {
         // check if the chain to connect to is installed
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0x4' }], // switch to Rinkeby
+          params: [{ chainId: '0x89' }], // switch to polygon
         });
         await window.ethereum.enable();
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         const account = signer.getAddress();
         const nft = new Contract(
-          '0xBB31244ef4691C5EdD6Fd269A5b77Cba99fc5538',
+          '0x848C8e73C3b38Df6aA9b6eBbA98E5FE57CeB9b78',
           abi,
           signer
         );
         setProvider(provider);
         setNft(nft);
-        //console.log(provider);
+        console.log(provider);
+        console.log(nft);
         //console.log(nft);
         setConnected(true);
         setAddress(account);
@@ -63,7 +57,7 @@ const Minter = () => {
               method: 'wallet_addEthereumChain',
               params: [
                 {
-                  chainId: '0x1',
+                  chainId: '0x89',
                   rpcUrl: 'https://polygon-rpc.com/',
                 },
               ],
@@ -103,31 +97,10 @@ const Minter = () => {
       const value = (price * quantidade).toString()
       console.log(value)
 
-      const transaction = await nft.mint(address, quantidade, { value: value })
+      const transaction = await nft.mint(quantidade, { value: value })
       await transaction.wait()
       console.log(transaction)
 
-      /*
-      const tx = await nftWallet.sendTransaction({
-        to: '0x57d98F67B33f62c82a061f9D83e25409ad109bD2',
-        from: address,
-        value: '1000000000000000000',
-        data: nft.mint(address, quantidade)
-      })
-      await tx.wait()
-      console.log(tx)
-      */
-
-      /*
-      const tx1 = await nft.mint(address, quantidade)
-      tx1.wait();
-      console.log(tx1)
-      */
-      
-
-
-
-    
       console.log("Minting DONE");
       setMinted(true);
     } catch (error) {
@@ -141,7 +114,7 @@ const Minter = () => {
   return (
 
     <div className={styles.minter}>
-      <h2 className={styles._title}>Crypto Fools</h2>
+      <h2 className={styles._title}>Ementor NFTs</h2>
       {!isConnected}
 
       {isConnected ? (
@@ -149,9 +122,9 @@ const Minter = () => {
           <CardContent className={styles._card_content}>
 
             <div className="Minter">
-              <h1 id="title">Minter</h1>
+              <h1 id="title"></h1>
               <p>
-                Enter quantity you want to mint (max 10):
+                Digite a quantidade que deseja fazer o mint (max 10):
               </p>
  
                 <div className={styles._number_input}>
@@ -170,9 +143,9 @@ const Minter = () => {
                 </button>
               <hr />
               {minted ? (
-                <a href="https://testnets.opensea.io/collection/mekicats-test-vjlfmsxqh2">LINK TO OPENSEA</a>
+                <a href="https://opensea.io/collection/duplaslab">LINK PARA A OPENSEA</a>
               ) : (
-                <div>Awaiting to mint...</div>
+                <div>Aguardando o mint...</div>
               )}
             </div>
           </CardContent>
@@ -180,10 +153,10 @@ const Minter = () => {
       ) : (
         <Card className={styles._card}>
             <CardContent className={styles._card_content}>
-              <p>The public mint is live:</p>
+              <p></p>
               <AccountBalanceWalletIcon style={{ fontSize: "50px" }} />
             <button className={styles.wallet_btn} onClick={() => init()}>
-              connect a wallet
+              Conectar a metamask
             </button>
           </CardContent>
         </Card>
